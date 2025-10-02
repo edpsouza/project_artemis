@@ -2,7 +2,7 @@
 
 Project Artemis is a lightweight command-line interface (CLI) tool that interacts with Google's Gemini API to generate AI-powered content from user prompts. Designed for simplicity and extensibility, it enables quick experimentation with Gemini models directly from your terminal.
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
 
@@ -71,5 +71,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 🧠✨ Made with curiosity and code by [Eduardo](https://github.com/edpsouza)
  
+
 
 
