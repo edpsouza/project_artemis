@@ -12,10 +12,12 @@ Project Artemis is a lightweight command-line interface (CLI) tool that interact
 - 🧠 Accepts user prompts as command-line arguments
 - 📊 Optional verbose mode for token usage insights
 - 🔐 Loads API key securely from `.env` file
+- ⚡ Uses `uv` for dependency resolution and environment management
 
 ## 📦 Requirements
 
-- Python 3.8+
+- Python 3.11+ (recommended: 3.11, as specified in `.python-version`)
+- [uv](https://docs.astral.sh/uv/) installed (`pipx install uv`)
 - A valid Gemini API key
 - `.env` file with your API key
 
@@ -27,12 +29,13 @@ Project Artemis is a lightweight command-line interface (CLI) tool that interact
  cd project_artemis
 ```
 
-2. Install dependencies:
+2. Sync dependencies using uv:
 ```bash
-pip install -r requirements.txt
+uv venv
+uv sync
 ```
 
-3. Create a .env file and add your Gemini API key:
+4. Create a .env file and add your Gemini API key:
 ```bash
 echo "GEMINI_API_KEY=your_api_key_here" > .env
 ```
@@ -41,11 +44,11 @@ echo "GEMINI_API_KEY=your_api_key_here" > .env
 
 Run the script with a prompt (example): 
 ```bash
-python main.py "Write a short story about Artemis on the moon"
+uv run main.py "Write a short story about Artemis on the moon"
 ```
 Enable verbose mode for detailed output:
 ```bash
-python main.py "Summarise the history of AI" --verbose
+uv run main.py "Summarise the history of AI" --verbose
 ```
 
 ## 🧪 Example Output
@@ -65,5 +68,7 @@ Pull requests are welcome! If you have ideas for new features, model integration
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Made with curiosity and code by Eduardo
+---
+🧠✨ Made with curiosity and code by [Eduardo](https://github.com/edpsouza)
  
+
