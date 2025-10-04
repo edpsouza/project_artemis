@@ -1,45 +1,25 @@
-import os
-import sys
-from dotenv import load_dotenv
-from google import genai
-from google.genai import types
+from core.config import get_api_key
+from core.gemini_client import GeminiClient
+from utils.prompt_utils import parse_prompt
+from utils.output_utils import display_response
 
 def main():
-    # Check if the prompt argument is provided, if not exit with non-zero status code
-    if len(sys.argv) < 2:
-        print("Error: Prompt argument is required.")
-        sys.exit(1)
+    api_key = get_api_key()
+    client = GeminiClient(api_key)
 
-    # Get the user prompt from command line arguments
-    user_prompt = sys.argv[1]
-    # Check if the verbose flag is provided
-    verbose_flag = "--verbose" in sys.argv[2:]
+    print("Welcome to Project Artemis! Type your prompt and press Enter.")
+    print("Type 'exit' or 'quit' to end the session.")
+    print("Add '--verbose' to the end of your prompt for detailed output.\n")
 
-    # Load environment variables from .env file
-    load_dotenv()
-    api_key = os.environ.get("GEMINI_API_KEY")
-    client = genai.Client(api_key=api_key)
+    while True:
+        raw_prompt = input("Prompt: ")
+        if raw_prompt.lower() in ("exit", "quit"):
+            print("Goodbye!")
+            break
 
-    # Prepare the messages for the model
-    messages = [
-        types.Content(role="user", parts=[types.Part(text=user_prompt)]),
-    ]
-
-    # Generate content using the Gemini model
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-001",
-        contents=messages,
-    )
-
-    # Checks verbose flag, and if present print aditional information
-    if verbose_flag:
-        print(f"User prompt: {user_prompt}\n")
-        print(response.text)
-        print("Prompt tokens:", response.usage_metadata.prompt_token_count)
-        print("Response tokens:", response.usage_metadata.candidates_token_count)
-    # If not verbose, just print the response text
-    else:
-        print(response.text)
+        prompt, verbose_flag = parse_prompt(raw_prompt)
+        response = client.generate_content(prompt)
+        display_response(response, prompt, verbose_flag)
 
 # Run the main function if this script is executed
 if __name__ == "__main__":

@@ -13,6 +13,7 @@ Project Artemis is a lightweight command-line interface (CLI) tool that interact
 - 📊 Optional verbose mode for token usage insights
 - 🔐 Loads API key securely from `.env` file
 - ⚡ Uses `uv` for dependency resolution and environment management
+- 🧩 Modular codebase for maintainability ('core' folder for config, API client. 'utils' folder for prompt parsing, and output formatting)
 
 ## 📦 Requirements
 
@@ -42,27 +43,22 @@ echo "GEMINI_API_KEY=your_api_key_here" > .env
 
 ## 🚀 Usage
 
-Run the script with a prompt (example): 
+Start the interactive CLI:
 ```bash
-uv run main.py "Write a short story about Artemis on the moon"
+uv run main.py
 ```
-Enable verbose mode for detailed output:
-```bash
-uv run main.py "Summarise the history of AI" --verbose
-```
-
-## 🧪 Example Output
+You will see:
 ```text
-User prompt: Summarise the history of AI
-
-Artificial Intelligence (AI) began as a field in the 1950s...
-Prompt tokens: 12
-Response tokens: 87
+Welcome to Project Artemis! Type your prompt and press Enter.
+Type 'exit' or 'quit' to end the session.
+Add '--verbose' to the end of your prompt for detailed output.
 ```
-
-## 🤝 Contributing
-
-Pull requests are welcome! If you have ideas for new features, model integrations, or improvements to the CLI interface, feel free to fork and submit a PR.
+Example prompts:
+```text
+Prompt: Write a short story about Artemis on the moon
+Prompt: Summarise the history of AI --verbose
+Prompt: exit
+```
 
 ## 📜 License
 
@@ -70,7 +66,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 🧠✨ Made with curiosity and code by [Eduardo](https://github.com/edpsouza)
+<<<<<<< HEAD
  
 
 
 
+=======
+>>>>>>> 20ae4a5 (Refactor CLI to interactive loop, modularise codebase, update README and .gitignore)

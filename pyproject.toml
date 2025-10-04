@@ -1,7 +1,7 @@
 [project]
 name = "project_artemis"
 version = "0.1.0"
-description = "Add your description here"
+description = "AI-powered CLI tool for generating content using Google's Gemini API. Lightweight, secure, and extensible."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
