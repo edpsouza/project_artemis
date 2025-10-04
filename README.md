@@ -66,10 +66,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 🧠✨ Made with curiosity and code by [Eduardo](https://github.com/edpsouza)
-<<<<<<< HEAD
- 
-
-
-
-=======
->>>>>>> 20ae4a5 (Refactor CLI to interactive loop, modularise codebase, update README and .gitignore)
